@@ -1,0 +1,12 @@
+name: CovidHunShinyPred
+title: CovidHunShinyPred
+username:
+account: hollipista
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3803124
+bundleId: 4354735
+url: https://hollipista.shinyapps.io/CovidHunShinyPred/
+when: 1615925194.08626
+asMultiple: FALSE
+asStatic: FALSE

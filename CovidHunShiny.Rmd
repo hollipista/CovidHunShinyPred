@@ -1,0 +1,79 @@
+---
+title: "CovidHunShinyPred"
+author: "holliPista"
+date: '2021 03 16 '
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyr)
+library(gsheet)
+```
+
+## Overview
+
+There are no more current topic than the Covid-19. As the 'Shiny Application and 
+Reproducible Pitch' I've made a quick visualization of the Hungarian fatality 
+and share of positive tests. It's the seed of a prediction project but just the
+first explanatory step, hence please do not expect any fancy thing.
+
+You can find the project on the following github link: 
+<https://github.com/hollipista/CovidHunShinyPred>
+
+Further information about the data: <https://atlo.team/koronamonitor/>
+
+And here is the shiny app: <https://hollipista.shinyapps.io/CovidHunShinyPred/>
+
+## Dataframe
+
+I have a subsection of original dataset for further predictions, you can see below:
+
+```{r echo = FALSE, warning=FALSE}
+covidhu<-gsheet2tbl('https://docs.google.com/spreadsheets/d/1e4VEZL1xvsALoOIq9V2SQuICeQrT5MtWfBm32ad7i8Q')
+covidhu<-covidhu[,c(1,3,12,17,18,19,20,21,33)]
+names(covidhu)[1] <- "Date"
+names(covidhu)[2] <- "NewCases"
+names(covidhu)[3] <- "ActiveInfected"
+names(covidhu)[4] <- "PositiveTestSHR"
+names(covidhu)[5] <- "Fatality"
+names(covidhu)[6] <- "Recovered"
+names(covidhu)[7] <- "Hospitalized"
+names(covidhu)[8] <- "VentilatorTreated"
+names(covidhu)[9] <- "Vaccinated"
+```
+
+```{r echo = TRUE}
+head(covidhu)
+```
+
+
+## Original mortality figures
+
+As you can see there's quite huge fluctuation in the figures. We have to handle
+the variability of the variables. It has a noisy nature of course but the 
+uneven data provision is also an important factor. 
+
+```{r echo = TRUE}
+plot(covidhu$Fatality,type='l')
+```
+
+## "Manual" for the shiny app
+
+I've chosen the share of positive test variable for this project. You can see
+a linechart made by ggplot, with the absolute number of daily fatal cases and 
+the mentioned positive test share data. 
+
+You can apply different moving averages stepped by days (default is 0 that means
+no applied moving average), and also shift the tests with lag function as the
+identified amount of diseased results in lethal results with a certain delay - 
+of course.
+
+Please do not take my project seriously, it's about a tiny play around shiny.
+
+And again, here is a the app: <https://hollipista.shinyapps.io/CovidHunShinyPred/>
+
+
+
+Thanks for you grading!
+
