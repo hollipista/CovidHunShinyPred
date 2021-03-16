@@ -12,6 +12,8 @@ You can find the project on the following github link:
 
 Further information about the data: <https://atlo.team/koronamonitor/>
 
+My presentation available here: <https://rpubs.com/hollipista/CovidHunShinyPred>
+
 And here is the shiny app: <https://hollipista.shinyapps.io/CovidHunShinyPred/>
 
 Assigment instructions:
